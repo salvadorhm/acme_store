@@ -7,12 +7,9 @@
  * Author:  sax
  * Created: 15/11/2016
  */
-
 CREATE DATABASE acme_store;
 
 USE acme_store;
-
-DROP TABLE IF EXISTS productos;
 
 CREATE TABLE productos (
   id_producto int(11) NOT NULL AUTO_INCREMENT,
@@ -26,7 +23,7 @@ CREATE TABLE productos (
 
 CREATE TABLE usuarios(
     user varchar(20) NOT NULL PRIMARY KEY,
-    password varchar(20) NOT NULL
+    password varchar(32) NOT NULL
 )
 
 
@@ -37,5 +34,5 @@ INSERT INTO productos(producto,existencias,descripcion,precio_compra,precio_vent
 ('Laptop Asus Mx34',5,'Laptop Asus i7 8GB Ram 1TB HHD',17000,21000);
 
 
-INSERT INTO usuarios(user, password) VALUES ('admin','12345');
-INSERT INTO usuarios(user, password) VALUES ('vendedor','12345');
+INSERT INTO usuarios(user, password) VALUES ('admin',MD5('12345'));
+INSERT INTO usuarios(user, password) VALUES ('vendedor',MD5('12345'));
