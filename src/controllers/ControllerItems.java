@@ -104,6 +104,8 @@ public class ControllerItems {
                 jbtnAgregarActionPerformed();
             } else if (e.getSource() == viewItems.jbtnCancelar) {
                 jbtnCancelarActionPerformed();
+            } else if (e.getSource() == viewItems.jbtnEditar) {
+                jbtnEditarActionPerformed();
             }
         }
     };
@@ -141,7 +143,8 @@ public class ControllerItems {
     private void jbtnAgregarActionPerformed() {
         if (viewItems.jbtnAgregar.getText().equals("Agregar")) {
             clearValues();
-            agregarComponentsState(false);
+            componentsState(false);
+            viewItems.jbtnAgregar.setEnabled(true);
             viewItems.jbtnAgregar.setText("Guardar");
         } else {
             if (setValues()) {
@@ -152,13 +155,13 @@ public class ControllerItems {
                     this.viewItems.jtRegistros.setModel(modeltems.getTabla_productos());
                     JOptionPane.showMessageDialog(viewItems, "Registro insertado");
                     viewItems.jbtnAgregar.setText("Agregar");
-                    agregarComponentsState(true);
+                    componentsState(true);
                 }
             }
         }
     }
 
-    private void agregarComponentsState(boolean state) {
+    private void componentsState(boolean state) {
         viewItems.jbtnPrimero.setEnabled(state);
         viewItems.jbtnAnterior.setEnabled(state);
         viewItems.jbtnSiguiente.setEnabled(state);
@@ -166,6 +169,7 @@ public class ControllerItems {
         viewItems.jbtnEliminar.setEnabled(state);
         viewItems.jbtnEditar.setEnabled(state);
         viewItems.jbtnBuscar.setEnabled(state);
+        viewItems.jbtnAgregar.setEnabled(state);
         viewItems.jtfProducto.setEditable(!state);
         viewItems.jtfExistencias.setEditable(!state);
         viewItems.jtaDescripcion.setEditable(!state);
@@ -181,6 +185,23 @@ public class ControllerItems {
     }
 
     private void jbtnEditarActionPerformed() {
+//        if (viewItems.jbtnEditar.getText().equals("Editar")) {
+//            componentsState(false);
+//            viewItems.jbtnEditar.setEnabled(true);
+//            viewItems.jbtnEditar.setText("Guardar");
+//        } else {
+//            if (setValues()) {
+//                if (modeltems.edit() == false) {
+//                    JOptionPane.showMessageDialog(viewItems, "Error al editar");
+//                } else {
+//                    showValues();
+//                    this.viewItems.jtRegistros.setModel(modeltems.getTabla_productos());
+//                    JOptionPane.showMessageDialog(viewItems, "Registro editado");
+//                    viewItems.jbtnEditar.setText("Editar");
+//                    componentsState(true);
+//                }
+//            }
+//        }
 
     }
 
@@ -189,10 +210,11 @@ public class ControllerItems {
     }
 
     private void jbtnCancelarActionPerformed() {
-        agregarComponentsState(true);
+        componentsState(true);
         showValues();
         this.viewItems.jtRegistros.setModel(modeltems.getTabla_productos());
         viewItems.jbtnAgregar.setText("Agregar");
+        viewItems.jbtnEditar.setText("Editar");
     }
 
 }

@@ -178,5 +178,21 @@ public class Modeltems {
         return state;
     }
     
+//    public boolean edit(){
+//        String sql = "UPDATE productos set "
+//                + "producto ='" + producto + "', "
+//                + "existencias =" +
+//                + "descripcion," + descripcion + "."
+//                + "precio_compra,"
+//                + "precio_venta) values("
+//                + "'"+producto+"',"
+//                + existencias+","
+//                + "'"+descripcion+"',"
+//                + precio_compra+","
+//                + precio_venta+");";
+//        boolean state = conexion.executeUpdate(sql);
+//        init();
+//        return state;
+//    }
 
 }

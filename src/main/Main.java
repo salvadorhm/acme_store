@@ -21,13 +21,18 @@ public class Main {
      */
     public static void main(String[] args) {
         
-        Object controllers[] = new Object[1];
+        Object controllers[] = new Object[2];
         
         Modeltems modeltems = new Modeltems();
         ViewItems viewItems = new ViewItems();
         ControllerItems controllerItems = new ControllerItems(modeltems, viewItems);
         
+        ModelLogin modelLogin = new ModelLogin();
+        ViewLogin viewLogin = new ViewLogin();
+        ControllerLogin controllerLogin = new ControllerLogin(modelLogin, viewLogin);
+        
         controllers[0] = controllerItems;
+        controllers[1] = controllerLogin;
         
         ModelMain modelMain = new ModelMain();
         ViewMain viewMain = new ViewMain();

@@ -161,49 +161,76 @@ public class ViewItems extends javax.swing.JPanel {
 
         jpControles.setBackground(new java.awt.Color(255, 255, 255));
 
+        jbtnAnterior.setBackground(new java.awt.Color(255, 255, 255));
+        jbtnAnterior.setForeground(new java.awt.Color(0, 0, 255));
         jbtnAnterior.setMnemonic('K');
         jbtnAnterior.setText("<<");
+        jbtnAnterior.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         jbtnAnterior.setMaximumSize(new java.awt.Dimension(100, 100));
         jbtnAnterior.setMinimumSize(new java.awt.Dimension(100, 100));
 
+        jbtnSiguiente.setBackground(new java.awt.Color(255, 255, 255));
+        jbtnSiguiente.setForeground(new java.awt.Color(0, 0, 255));
         jbtnSiguiente.setText(">>");
+        jbtnSiguiente.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         jbtnSiguiente.setMaximumSize(new java.awt.Dimension(100, 100));
         jbtnSiguiente.setMinimumSize(new java.awt.Dimension(100, 100));
 
+        jbtnPrimero.setBackground(new java.awt.Color(255, 255, 255));
+        jbtnPrimero.setForeground(new java.awt.Color(0, 0, 255));
         jbtnPrimero.setText("|<");
         jbtnPrimero.setToolTipText("");
+        jbtnPrimero.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         jbtnPrimero.setMaximumSize(new java.awt.Dimension(100, 100));
         jbtnPrimero.setMinimumSize(new java.awt.Dimension(100, 100));
 
+        jbtnUltimo.setBackground(new java.awt.Color(255, 255, 255));
+        jbtnUltimo.setForeground(new java.awt.Color(0, 0, 255));
         jbtnUltimo.setText(">|");
+        jbtnUltimo.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         jbtnUltimo.setMaximumSize(new java.awt.Dimension(100, 100));
         jbtnUltimo.setMinimumSize(new java.awt.Dimension(100, 100));
 
+        jbtnEliminar.setBackground(new java.awt.Color(255, 255, 255));
+        jbtnEliminar.setForeground(new java.awt.Color(0, 0, 255));
         jbtnEliminar.setMnemonic('l');
         jbtnEliminar.setText("Eliminar");
         jbtnEliminar.setToolTipText("");
+        jbtnEliminar.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         jbtnEliminar.setMaximumSize(new java.awt.Dimension(100, 100));
         jbtnEliminar.setMinimumSize(new java.awt.Dimension(100, 100));
 
+        jbtnAgregar.setBackground(new java.awt.Color(255, 255, 255));
+        jbtnAgregar.setForeground(new java.awt.Color(0, 0, 255));
         jbtnAgregar.setMnemonic('a');
         jbtnAgregar.setText("Agregar");
+        jbtnAgregar.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         jbtnAgregar.setMaximumSize(new java.awt.Dimension(100, 100));
         jbtnAgregar.setMinimumSize(new java.awt.Dimension(100, 100));
 
+        jbtnEditar.setBackground(new java.awt.Color(255, 255, 255));
+        jbtnEditar.setForeground(new java.awt.Color(0, 0, 255));
         jbtnEditar.setMnemonic('e');
         jbtnEditar.setText("Editar");
         jbtnEditar.setToolTipText("");
+        jbtnEditar.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         jbtnEditar.setMaximumSize(new java.awt.Dimension(100, 100));
         jbtnEditar.setMinimumSize(new java.awt.Dimension(100, 100));
 
+        jbtnBuscar.setBackground(new java.awt.Color(255, 255, 255));
+        jbtnBuscar.setForeground(new java.awt.Color(0, 0, 255));
         jbtnBuscar.setMnemonic('b');
         jbtnBuscar.setText("Buscar");
         jbtnBuscar.setToolTipText("");
+        jbtnBuscar.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         jbtnBuscar.setMaximumSize(new java.awt.Dimension(100, 100));
         jbtnBuscar.setMinimumSize(new java.awt.Dimension(100, 100));
 
+        jbtnCancelar.setBackground(new java.awt.Color(255, 255, 255));
+        jbtnCancelar.setForeground(new java.awt.Color(0, 0, 255));
         jbtnCancelar.setMnemonic('c');
         jbtnCancelar.setText("Cancelar");
+        jbtnCancelar.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         jbtnCancelar.setEnabled(false);
         jbtnCancelar.setMaximumSize(new java.awt.Dimension(100, 100));
         jbtnCancelar.setMinimumSize(new java.awt.Dimension(100, 100));

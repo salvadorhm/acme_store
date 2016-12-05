@@ -24,9 +24,18 @@ CREATE TABLE productos (
   PRIMARY KEY (id_producto)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+CREATE TABLE usuarios(
+    user varchar(20) NOT NULL PRIMARY KEY,
+    password varchar(20) NOT NULL
+)
+
 
 
 INSERT INTO productos(producto,existencias,descripcion,precio_compra,precio_venta) VALUES 
 ('Moto Maxx',10,'Motorola Moto Maxx',8500,10500),
 ('Pebble',100,'Pebble Red',1800,2000),
 ('Laptop Asus Mx34',5,'Laptop Asus i7 8GB Ram 1TB HHD',17000,21000);
+
+
+INSERT INTO usuarios(user, password) VALUES ('admin','12345');
+INSERT INTO usuarios(user, password) VALUES ('vendedor','12345');
