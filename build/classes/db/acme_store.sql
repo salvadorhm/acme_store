@@ -1,8 +1,3 @@
-/* 
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 /**
  * Author:  sax
  * Created: 15/11/2016
@@ -12,19 +7,18 @@ CREATE DATABASE acme_store;
 USE acme_store;
 
 CREATE TABLE productos (
-  id_producto int(11) NOT NULL AUTO_INCREMENT,
+  id_producto int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
   producto varchar(100) NOT NULL,
   existencias float NOT NULL,
   descripcion varchar(200) NOT NULL,
   precio_compra float NOT NULL,
-  precio_venta float NOT NULL,
-  PRIMARY KEY (id_producto)
+  precio_venta float NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 CREATE TABLE usuarios(
     user varchar(20) NOT NULL PRIMARY KEY,
     password varchar(32) NOT NULL
-)
+)ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 
 

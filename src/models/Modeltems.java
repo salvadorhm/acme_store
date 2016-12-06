@@ -134,9 +134,20 @@ public class Modeltems {
     public void init() {
         String sql = "SELECT * FROM productos;";
         conexion.updateTable(sql);
-        if (conexion.executeQuery(sql) == false)
+        if (conexion.executeQuery(sql) == false) {
             JOptionPane.showMessageDialog(null, "Error en la conexion");
-        
+        }
+
+        conexion.moveNext();
+        setValues();
+    }
+
+    public void init(String sql) {
+        conexion.updateTable(sql);
+        if (conexion.executeQuery(sql) == false) {
+            JOptionPane.showMessageDialog(null, "Error en la conexion");
+        }
+
         conexion.moveNext();
         setValues();
     }
@@ -150,49 +161,62 @@ public class Modeltems {
         conexion.movePrevious();
         setValues();
     }
-    
-    public void moveFirst(){
+
+    public void moveFirst() {
         conexion.moveFirst();
         setValues();
     }
-    
-    public void moveLast(){
+
+    public void moveLast() {
         conexion.moveLast();
         setValues();
     }
-    
-    public boolean add(){
-        String sql = "INSERT INTO productos("
-                + "producto,"
-                + "existencias,"
-                + "descripcion,"
-                + "precio_compra,"
-                + "precio_venta) values("
-                + "'"+producto+"',"
-                + existencias+","
-                + "'"+descripcion+"',"
-                + precio_compra+","
-                + precio_venta+");";
-        boolean state = conexion.executeUpdate(sql);
+
+    public boolean add() {
+        String sql = "INSERT INTO productos(producto, existencias, descripcion, precio_compra, precio_venta) values(?,?,?,?,?);";
+        conexion.prepareStatement(sql);
+        conexion.setPreparedStatement(1, producto);
+        conexion.setPreparedStatement(2, existencias);
+        conexion.setPreparedStatement(3, descripcion);
+        conexion.setPreparedStatement(4, precio_compra);
+        conexion.setPreparedStatement(5, precio_venta);
+
+        boolean state = conexion.executeUpdatePreparedStatement();
         init();
         return state;
     }
-    
-//    public boolean edit(){
-//        String sql = "UPDATE productos set "
-//                + "producto ='" + producto + "', "
-//                + "existencias =" +
-//                + "descripcion," + descripcion + "."
-//                + "precio_compra,"
-//                + "precio_venta) values("
-//                + "'"+producto+"',"
-//                + existencias+","
-//                + "'"+descripcion+"',"
-//                + precio_compra+","
-//                + precio_venta+");";
-//        boolean state = conexion.executeUpdate(sql);
-//        init();
-//        return state;
-//    }
 
+    public boolean edit() {
+        String sql = "UPDATE productos set  producto = ?,  existencias = ?, descripcion =?, precio_compra = ?, precio_venta= ? where id_producto=? ";
+        conexion.prepareStatement(sql);
+        conexion.setPreparedStatement(1, producto);
+        conexion.setPreparedStatement(2, existencias);
+        conexion.setPreparedStatement(3, descripcion);
+        conexion.setPreparedStatement(4, precio_compra);
+        conexion.setPreparedStatement(5, precio_venta);
+        conexion.setPreparedStatement(6, id_producto);
+
+        boolean state = conexion.executeUpdatePreparedStatement();
+        init();
+        return state;
+    }
+
+    public boolean del() {
+        String sql = "DELETE  FROM productos where id_producto=? ";
+        conexion.prepareStatement(sql);
+        conexion.setPreparedStatement(1, id_producto);
+        boolean state = conexion.executeUpdatePreparedStatement();
+        init();
+        return state;
+    }
+
+    public boolean search() {
+        String sql = "SELECT * FROM productos where producto like '%?%'";
+        conexion.prepareStatement(sql);
+        conexion.setPreparedStatement(1, producto);
+        boolean state = conexion.executePreparedStatement();
+        init("SELECT * FROM productos where producto like '%"+producto+"%';");
+        return state;
+
+    }
 }

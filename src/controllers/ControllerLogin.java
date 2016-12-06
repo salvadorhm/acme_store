@@ -45,7 +45,6 @@ public class ControllerLogin {
     };
 
     private void login() {
-
         try {
             MessageDigest md5 = MessageDigest.getInstance("MD5");
             md5.update(StandardCharsets.UTF_8.encode(viewLogin.jtf_password.getText()));

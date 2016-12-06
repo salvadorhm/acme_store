@@ -44,20 +44,19 @@ public class ModelLogin {
         /*
         abierto a SQL Injection
          */
-        
-         String sql = "SELECT user, password FROM usuarios where user='" + user + "' and password = '" + password + "';";
-        System.err.println(sql);
-        conexion.executeQuery(sql);
-        
-        
+//        String sql = "SELECT user, password FROM usuarios where user='" + user + "' and password = '" + password + "';";
+//        System.err.println(sql);
+//        conexion.executeQuery(sql);
+
         /*
             Cerrado a SQL injecction
          */
-//        String cool = "SELECT user, password FROM usuarios where user=? and password=?;";
-//        conexion.prepareStatement(cool);
-//        conexion.setPreparedStatement(1, getUser());
-//        conexion.setPreparedStatement(2, getPassword());
-//        conexion.executePreparedStatement();
+        
+        String cool = "SELECT user, password FROM usuarios where user=? and password=?;";
+        conexion.prepareStatement(cool);
+        conexion.setPreparedStatement(1, getUser());
+        conexion.setPreparedStatement(2, getPassword());
+        conexion.executePreparedStatement();
 
         conexion.moveNext();
         setUser(conexion.getString("user"));

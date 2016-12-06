@@ -54,11 +54,13 @@ public class ViewItems extends javax.swing.JPanel {
         jbtnEditar = new javax.swing.JButton();
         jbtnBuscar = new javax.swing.JButton();
         jbtnCancelar = new javax.swing.JButton();
+        jbtnReset = new javax.swing.JButton();
         jpTabla = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jtRegistros = new javax.swing.JTable();
 
         setBackground(new java.awt.Color(255, 255, 255));
+        setPreferredSize(new java.awt.Dimension(1040, 639));
 
         jLabel1.setBackground(new java.awt.Color(0, 153, 255));
         jLabel1.setFont(new java.awt.Font("DejaVu Sans", 0, 18)); // NOI18N
@@ -131,7 +133,7 @@ public class ViewItems extends javax.swing.JPanel {
                             .addComponent(jtfPrecioVenta, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jtfPrecioCompra, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addComponent(jlId))
-                .addContainerGap(181, Short.MAX_VALUE))
+                .addContainerGap(272, Short.MAX_VALUE))
         );
         jpDatosLayout.setVerticalGroup(
             jpDatosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -235,6 +237,15 @@ public class ViewItems extends javax.swing.JPanel {
         jbtnCancelar.setMaximumSize(new java.awt.Dimension(100, 100));
         jbtnCancelar.setMinimumSize(new java.awt.Dimension(100, 100));
 
+        jbtnReset.setBackground(new java.awt.Color(255, 255, 255));
+        jbtnReset.setForeground(new java.awt.Color(0, 0, 255));
+        jbtnReset.setMnemonic('b');
+        jbtnReset.setText("Reset");
+        jbtnReset.setToolTipText("");
+        jbtnReset.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        jbtnReset.setMaximumSize(new java.awt.Dimension(100, 100));
+        jbtnReset.setMinimumSize(new java.awt.Dimension(100, 100));
+
         javax.swing.GroupLayout jpControlesLayout = new javax.swing.GroupLayout(jpControles);
         jpControles.setLayout(jpControlesLayout);
         jpControlesLayout.setHorizontalGroup(
@@ -258,7 +269,9 @@ public class ViewItems extends javax.swing.JPanel {
                 .addComponent(jbtnBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jbtnCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(31, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jbtnReset, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jpControlesLayout.setVerticalGroup(
             jpControlesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -273,7 +286,8 @@ public class ViewItems extends javax.swing.JPanel {
                     .addComponent(jbtnAgregar, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jbtnEditar, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jbtnBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jbtnCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jbtnCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jbtnReset, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(16, Short.MAX_VALUE))
         );
 
@@ -350,6 +364,7 @@ public class ViewItems extends javax.swing.JPanel {
     public javax.swing.JButton jbtnEditar;
     public javax.swing.JButton jbtnEliminar;
     public javax.swing.JButton jbtnPrimero;
+    public javax.swing.JButton jbtnReset;
     public javax.swing.JButton jbtnSiguiente;
     public javax.swing.JButton jbtnUltimo;
     private javax.swing.JLabel jlDescripcion;

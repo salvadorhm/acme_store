@@ -34,6 +34,7 @@ public class ControllerItems {
         this.viewItems.jbtnEditar.addActionListener(actionListener);
         this.viewItems.jbtnBuscar.addActionListener(actionListener);
         this.viewItems.jbtnCancelar.addActionListener(actionListener);
+        this.viewItems.jbtnReset.addActionListener(actionListener);
 
         this.viewItems.jtRegistros.setModel(modeltems.getTabla_productos());
 
@@ -106,6 +107,12 @@ public class ControllerItems {
                 jbtnCancelarActionPerformed();
             } else if (e.getSource() == viewItems.jbtnEditar) {
                 jbtnEditarActionPerformed();
+            } else if (e.getSource() == viewItems.jbtnEliminar) {
+                jbtnEliminarActionPerformed();
+            } else if (e.getSource() == viewItems.jbtnBuscar) {
+                jbtnBuscarActionPerformed();
+            } else if (e.getSource() == viewItems.jbtnReset) {
+                jbtnResetActionPerformed();
             }
         }
     };
@@ -146,17 +153,15 @@ public class ControllerItems {
             componentsState(false);
             viewItems.jbtnAgregar.setEnabled(true);
             viewItems.jbtnAgregar.setText("Guardar");
-        } else {
-            if (setValues()) {
-                if (modeltems.add() == false) {
-                    JOptionPane.showMessageDialog(viewItems, "Error al insertar");
-                } else {
-                    showValues();
-                    this.viewItems.jtRegistros.setModel(modeltems.getTabla_productos());
-                    JOptionPane.showMessageDialog(viewItems, "Registro insertado");
-                    viewItems.jbtnAgregar.setText("Agregar");
-                    componentsState(true);
-                }
+        } else if (setValues()) {
+            if (modeltems.add() == false) {
+                JOptionPane.showMessageDialog(viewItems, "Error al insertar");
+            } else {
+                showValues();
+                this.viewItems.jtRegistros.setModel(modeltems.getTabla_productos());
+                JOptionPane.showMessageDialog(viewItems, "Registro insertado");
+                viewItems.jbtnAgregar.setText("Agregar");
+                componentsState(true);
             }
         }
     }
@@ -181,32 +186,62 @@ public class ControllerItems {
     }
 
     private void jbtnEliminarActionPerformed() {
-
+        if (viewItems.jbtnEliminar.getText().equals("Eliminar")) {
+            componentsState(false);
+            viewItems.jbtnEliminar.setEnabled(true);
+            viewItems.jbtnEliminar.setText("Realizar");
+        } else if (setValues()) {
+            modeltems.setId_producto(Integer.parseInt(viewItems.jtfId_producto.getText()));
+            if (modeltems.del() == false) {
+                JOptionPane.showMessageDialog(viewItems, "Error al eliminar");
+            } else {
+                showValues();
+                this.viewItems.jtRegistros.setModel(modeltems.getTabla_productos());
+                JOptionPane.showMessageDialog(viewItems, "Registro eliminado");
+                viewItems.jbtnEliminar.setText("Eliminar");
+                componentsState(true);
+            }
+        }
     }
 
     private void jbtnEditarActionPerformed() {
-//        if (viewItems.jbtnEditar.getText().equals("Editar")) {
-//            componentsState(false);
-//            viewItems.jbtnEditar.setEnabled(true);
-//            viewItems.jbtnEditar.setText("Guardar");
-//        } else {
-//            if (setValues()) {
-//                if (modeltems.edit() == false) {
-//                    JOptionPane.showMessageDialog(viewItems, "Error al editar");
-//                } else {
-//                    showValues();
-//                    this.viewItems.jtRegistros.setModel(modeltems.getTabla_productos());
-//                    JOptionPane.showMessageDialog(viewItems, "Registro editado");
-//                    viewItems.jbtnEditar.setText("Editar");
-//                    componentsState(true);
-//                }
-//            }
-//        }
+        if (viewItems.jbtnEditar.getText().equals("Editar")) {
+            componentsState(false);
+            viewItems.jbtnEditar.setEnabled(true);
+            viewItems.jbtnEditar.setText("Guardar");
+        } else if (setValues()) {
+            modeltems.setId_producto(Integer.parseInt(viewItems.jtfId_producto.getText()));
+            if (modeltems.edit() == false) {
+                JOptionPane.showMessageDialog(viewItems, "Error al editar");
+            } else {
+                showValues();
+                this.viewItems.jtRegistros.setModel(modeltems.getTabla_productos());
+                JOptionPane.showMessageDialog(viewItems, "Registro editado");
+                viewItems.jbtnEditar.setText("Editar");
+                componentsState(true);
+            }
+        }
 
     }
 
     private void jbtnBuscarActionPerformed() {
-
+        if (viewItems.jbtnBuscar.getText().equals("Buscar")) {
+            clearValues();
+            componentsState(false);
+            viewItems.jbtnBuscar.setEnabled(true);
+            viewItems.jbtnBuscar.setText("Realizar");
+        } else {
+            modeltems.setProducto(viewItems.jtfProducto.getText());
+            if (modeltems.search() == false) {
+                JOptionPane.showMessageDialog(viewItems, "Registro no encontrado");
+            } else {
+                showValues();
+                this.viewItems.jtRegistros.setModel(modeltems.getTabla_productos());
+                JOptionPane.showMessageDialog(viewItems, "Registro encontrado");
+                viewItems.jbtnBuscar.setText("Buscar");
+                componentsState(true);
+            }
+        }
     }
 
     private void jbtnCancelarActionPerformed() {
@@ -215,6 +250,13 @@ public class ControllerItems {
         this.viewItems.jtRegistros.setModel(modeltems.getTabla_productos());
         viewItems.jbtnAgregar.setText("Agregar");
         viewItems.jbtnEditar.setText("Editar");
+        viewItems.jbtnEliminar.setText("Eliminar");
+        viewItems.jbtnBuscar.setText("Buscar");
+    }
+
+    private void jbtnResetActionPerformed() {
+        System.out.println("controllers.ControllerItems.jbtnResetActionPerformed()");
+        showValues();
     }
 
 }
