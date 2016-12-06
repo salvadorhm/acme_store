@@ -15,8 +15,8 @@ CREATE TABLE productos (
   precio_venta float NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
-CREATE TABLE usuarios(
-    user varchar(20) NOT NULL PRIMARY KEY,
+CREATE TABLE users(
+    username varchar(20) NOT NULL PRIMARY KEY,
     password varchar(32) NOT NULL
 )ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -28,5 +28,5 @@ INSERT INTO productos(producto,existencias,descripcion,precio_compra,precio_vent
 ('Laptop Asus Mx34',5,'Laptop Asus i7 8GB Ram 1TB HHD',17000,21000);
 
 
-INSERT INTO usuarios(user, password) VALUES ('admin',MD5('12345'));
-INSERT INTO usuarios(user, password) VALUES ('vendedor',MD5('12345'));
+INSERT INTO users(username, password) VALUES ('admin',MD5('12345'));
+INSERT INTO users(username, password) VALUES ('vendedor',MD5('12345'));

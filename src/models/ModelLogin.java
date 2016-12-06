@@ -16,7 +16,7 @@ public class ModelLogin {
 
     private DBConnection conexion;
 
-    private String user = "";
+    private String usernamename = "";
     private String password = "";
 
     public ModelLogin() {
@@ -24,11 +24,11 @@ public class ModelLogin {
     }
 
     public String getUser() {
-        return user;
+        return usernamename;
     }
 
-    public void setUser(String user) {
-        this.user = user;
+    public void setUser(String usernamename) {
+        this.usernamename = usernamename;
     }
 
     public String getPassword() {
@@ -44,7 +44,7 @@ public class ModelLogin {
         /*
         abierto a SQL Injection
          */
-//        String sql = "SELECT user, password FROM usuarios where user='" + user + "' and password = '" + password + "';";
+//        String sql = "SELECT username, password FROM usuarios where username='" + username + "' and password = '" + password + "';";
 //        System.err.println(sql);
 //        conexion.executeQuery(sql);
 
@@ -52,14 +52,14 @@ public class ModelLogin {
             Cerrado a SQL injecction
          */
         
-        String cool = "SELECT user, password FROM usuarios where user=? and password=?;";
+        String cool = "SELECT username, password FROM users where username=? and password=?;";
         conexion.prepareStatement(cool);
         conexion.setPreparedStatement(1, getUser());
         conexion.setPreparedStatement(2, getPassword());
         conexion.executePreparedStatement();
 
         conexion.moveNext();
-        setUser(conexion.getString("user"));
+        setUser(conexion.getString("username"));
         setPassword(conexion.getString("password"));
 
         if (getUser() != null) {

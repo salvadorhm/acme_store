@@ -3,8 +3,8 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/home/zeo/NetBeansProjects/Acme_Store/src/controllers/ControllerItems.java</file>
-            <file>file:/home/zeo/NetBeansProjects/Acme_Store/src/models/Modeltems.java</file>
+            <file>file:/home/zeo/NetBeansProjects/Acme_Store/src/db/acme_store.sql</file>
+            <file>file:/home/zeo/NetBeansProjects/Acme_Store/src/models/ModelLogin.java</file>
         </group>
     </open-files>
 </project-private>
